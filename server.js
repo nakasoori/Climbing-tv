@@ -3,9 +3,26 @@ const app = express(); //Instantiate server
 const path = require('path');
 
 const neo4j = require('neo4j-driver').v1
+const driver = neo4j.driver('bolt://hobby-chennogldadkgbkejfiahacl.dbs.graphenedb.com:24787', neo4j.auth.basic("v303", "GtGq5rldxu"));
 const graphenedbURL = process.env.GRAPHENEDB_BOLT_URL
 const graphenedbUser = process.env.GRAPHENEDB_BOLT_USER;
 const graphenedbPass = process.env.GRAPHENEDB_BOLT_PASSWORD;
+
+
+
+var session = driver.session();
+session
+    .run("CREATE (n:Person {name:'Bob'}) RETURN n.name")
+    .then(function(result) {
+        result.records.forEach(function(record) {
+            console.log(record)
+        });
+
+        session.close();
+    })
+    .catch(function(error) {
+        console.log(error);
+    });
 /*
 const driver = neo4j.driver(graphenedbURL, neo4j.auth.basic(graphenedbUser, graphenedbPass));
 
