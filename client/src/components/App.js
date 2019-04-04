@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import 'tachyons'
-import logo from './logo.svg';
-import './App.css';
+import './../css/App.css';
 import Menu from './Menu'
 import Feature from './Feature'
 import Wheel from './Wheel'
