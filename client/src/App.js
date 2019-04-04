@@ -10,9 +10,9 @@ import Wheel from './Wheel'
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className='App w-100 min-vh-100'>
         <Menu/>
-        <div className='App w-100'>
+        <div className>
           <div className='w-75 h-100 center pa2'>
             <div className='pa2'>
               <h3 className='2 dark-gray'>Featured</h3>
